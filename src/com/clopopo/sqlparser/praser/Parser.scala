@@ -113,4 +113,39 @@ abstract class Parser(input: Lexer) {
 		succ
 	}
 
+	//匹配0次或者1次
+	def ?(f: () => Unit): Boolean = {
+		if (isEOF) false
+		else {
+			var succ = true
+			mark
+			try {
+				f()
+			} catch {
+				case e: Exception => {
+					println(e.getMessage())
+					succ = false
+					release
+				}
+			}
+			succ
+		}
+	}
+	//匹配0次或多次
+	def *(f: () => Unit): Boolean = {
+		var succ = ?(f)
+		if (succ) { while (?(f)) {} }
+		succ
+	}
+	//至少匹配1次
+	def +(f: () => Unit): Boolean = {
+		f()
+		*(f) || true
+	}
+
+	//有且只能匹配一次
+	def $(f: () => Unit): Boolean = {
+		f()
+		true
+	}
 }

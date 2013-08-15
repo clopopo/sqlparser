@@ -1,7 +1,7 @@
 package com.clopopo.sqlparser.praser
 
 object Keyword extends Enumeration {
-  val SELECT, ALL, DISTINCT, DISTINCTROW, AS, FROM, WHERE, DIV, MOD, OR, AND, INTERVAL = Value
+  val SELECT, ALL, DISTINCT, DISTINCTROW, AS, FROM, WHERE, DIV, MOD, OR, AND, INTERVAL,INNER,CROSS,LEFT,RIGHT,JOIN,OUTER,NATURAL = Value
   type Keyword = Value
 }
 

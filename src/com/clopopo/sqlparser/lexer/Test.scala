@@ -4,7 +4,7 @@ import com.clopopo.sqlparser.praser.MySQLParser
 
 object Test2 {
 	def main(args: Array[String]) {
-		val lexer = new SQLLexer("select")
+		val lexer = new SQLLexer("select ss.*")
 		val parser = new MySQLParser(lexer)
 		parser.selectExpression
 

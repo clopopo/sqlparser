@@ -28,7 +28,7 @@ class SQLLexer(input: String) extends Lexer(input) {
       text + c
       consume
     } while (isNUM)
-    NAME(text.toString)
+    NUM(text.toString)
   }
 
   def nextToken(): Token = {
